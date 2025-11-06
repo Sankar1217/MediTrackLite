@@ -4,7 +4,7 @@ MediTrack is a full-stack medical appointment management application designed to
 
 ## 📌 Project Description
 
-MediTrackLite serves as a lightweight but powerful healthcare portal where:
+MediTrackLite serves as a lightweight but powerful healthcare portal where: 
 
 - **Patients** can register, book appointments, upload reports, and access medical history.
 - **Doctors** can manage appointments, update statuses, write prescriptions, and access analytics.
