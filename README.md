@@ -184,7 +184,6 @@ Follow these steps to run the project locally on your system
  ## Future Enhancements
 - Integreate Real time notifications to mobile number
 - JWT-based token authentication
-- Mobile app with React Native
 - Invoice Generation
 - Multi-language Support
   
