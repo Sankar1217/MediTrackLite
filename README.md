@@ -170,7 +170,6 @@ Follow these steps to run the project locally on your system
 - GET `/api/auth/feedbacks` - Fetch list of feedbacks 
 - POST `/appointments` – Book appointment
 - GET `/appointments/doctor/pending` – Fetch doctor’s pending appointments
-- PUT `/appointments/{id}/status` – Accept/Reject appointment
 - POST `/prescriptions/upload` - Adds Prescription Details
 - GET `/prescriptions/{appointmentId}` - Returns Prescription details based on appointmentId
 
