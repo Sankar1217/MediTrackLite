@@ -14,11 +14,11 @@ const PrintAppointment = () => {
   const [prescriptionError, setPrescriptionError] = useState('');
 
   useEffect(() => {
-    axios.get(`https://meditracklite-production.up.railway.app/appointments/patient/${id}`, { withCredentials: true })
+    axios.get(`http://localhost:8080/appointments/patient/${id}`, { withCredentials: true })
       .then((res) => setAppointment(res.data))
       .catch((err) => console.error("Error fetching appointment:", err));
 
-    axios.get("https://meditracklite-production.up.railway.app/api/auth/me", { withCredentials: true })
+    axios.get("http://localhost:8080/api/auth/me", { withCredentials: true })
       .then((res) => setUserRole(res.data.role))
       .catch((err) => console.error("Error fetching user role:", err));
   }, [id]);
@@ -30,7 +30,7 @@ const PrintAppointment = () => {
       setPrescriptions([]);
       setConsultationNotes('');
       setPrescriptionError('');
-      axios.get(`https://meditracklite-production.up.railway.app/prescriptions/${appointment.id}`, { withCredentials: true })
+      axios.get(`http://localhost:8080/prescriptions/${appointment.id}`, { withCredentials: true })
         .then(res => {
           // If backend returns a single prescription, wrap in array
           if (Array.isArray(res.data)) {

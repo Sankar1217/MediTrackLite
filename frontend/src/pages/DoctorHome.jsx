@@ -57,12 +57,12 @@ const [chatPatient, setChatPatient] = useState(null);
 
 
   const API = axios.create({
-    baseURL: 'https://meditracklite-production.up.railway.app',
+    baseURL: 'http://localhost:8080',
     withCredentials: true,
   });
 
   const ANALYTICS_API = axios.create({
-    baseURL: 'https://meditracklite-production.up.railway.app/analytics',
+    baseURL: 'http://localhost:8080/analytics',
     withCredentials: true,
   });
   const timeoutRef = useRef(null);
@@ -384,7 +384,7 @@ const DoctorCalendarView = ({ appointments, onStatusUpdate }) => {
                   className="report-download-btn"
                   style={{ backgroundColor: '#3f51b5', marginLeft: '10px' }}
                   onClick={() =>
-                    window.open(`https://meditracklite-production.up.railway.app/files/download/${encodeURIComponent(selectedEvent.prescriptionPath)}`, '_blank')
+                    window.open(`http://localhost:8080/files/download/${encodeURIComponent(selectedEvent.prescriptionPath)}`, '_blank')
                   }
                 >
                   💊 Download Prescription
@@ -548,7 +548,7 @@ const DoctorCalendarView = ({ appointments, onStatusUpdate }) => {
         <div className="sidebar">
           <img src="/images/docor_profile.jpg" alt="doctor" />
           <p>{user?.name}</p>
-          <p>{user?.email}</p>
+          {/* <p>{user?.email}</p> */}
           <button onClick={() => { setView('appointments'); setCalendarView(false); }}>Appointments</button>
           <button onClick={() => { setView('feedback'); setCalendarView(false); }}>Feedback</button>
           <button onClick={() => { setView('analytics'); setCalendarView(false); }}>Analytics</button>

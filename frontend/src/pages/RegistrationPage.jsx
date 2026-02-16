@@ -48,7 +48,7 @@ const RegisterPage = () => {
       };
 
       // Send registration request to the backend
-      const res = await axios.post('https://meditracklite-production.up.railway.app/api/auth/register', payload);
+      const res = await axios.post('http://localhost:8080/api/auth/register', payload);
       setSuccess(res.data);
       setError('');
       setTimeout(() => navigate('/login'), 2000); // Redirect to login after success

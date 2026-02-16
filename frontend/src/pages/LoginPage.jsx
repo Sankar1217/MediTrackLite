@@ -58,11 +58,11 @@ const LoginPage = () => {
     }
 
     try {
-      await axios.post('https://meditracklite-production.up.railway.app/api/auth/login',
+      await axios.post('http://localhost:8080/api/auth/login',
         { email, password },
         { withCredentials: true });
 
-      const res = await axios.get('https://meditracklite-production.up.railway.app/api/auth/profile', {
+      const res = await axios.get('http://localhost:8080/api/auth/profile', {
         withCredentials: true,
       });
 
@@ -93,7 +93,7 @@ const LoginPage = () => {
     }
     setFpLoading(true);
     try {
-      await axios.post('https://meditracklite-production.up.railway.app/auth/forgot-password', {
+      await axios.post('http://localhost:8080/auth/forgot-password', {
         email: fpEmail,
         backupEmail: fpBackup,
       });
@@ -113,7 +113,7 @@ const LoginPage = () => {
     }
     setFpLoading(true);
     try {
-      await axios.post('https://meditracklite-production.up.railway.app/auth/verify-otp', {
+      await axios.post('http://localhost:8080/auth/verify-otp', {
         email: fpEmail,
         otp: fpOtp,
       });
@@ -137,7 +137,7 @@ const LoginPage = () => {
     }
     setFpLoading(true);
     try {
-      await axios.post('https://meditracklite-production.up.railway.app/auth/reset-password', {
+      await axios.post('http://localhost:8080/auth/reset-password', {
         email: fpEmail,
         newPassword: fpNewPass,
       });
@@ -170,6 +170,7 @@ const LoginPage = () => {
             type="email"
             placeholder="Enter Email"
             value={email}
+            id="email"
             onChange={e => setEmail(e.target.value)}
             disabled={lockoutEndTime && new Date() < lockoutEndTime}
             autoComplete="username"
@@ -179,6 +180,7 @@ const LoginPage = () => {
             type="password"
             placeholder="Enter Password"
             value={password}
+            id="password"
             onChange={e => setPassword(e.target.value)}
             disabled={lockoutEndTime && new Date() < lockoutEndTime}
             autoComplete="current-password"
@@ -187,6 +189,7 @@ const LoginPage = () => {
           <button
             type="button"
             className="login-button"
+            id="login-button"
             onClick={handleLogin}
             disabled={lockoutEndTime && new Date() < lockoutEndTime}
           >

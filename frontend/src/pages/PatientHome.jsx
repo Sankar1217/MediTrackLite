@@ -13,15 +13,15 @@ import './../css/PatientHome.css';
 import '@fullcalendar/common/main.css'; // Only FullCalendar CSS needed for v6+
 
 const API = axios.create({
-  baseURL: 'https://meditracklite-production.up.railway.app',
+  baseURL: 'http://localhost:8080',
   withCredentials: true,
 });
 const RATING_API = axios.create({
-  baseURL:'https://meditracklite-production.up.railway.app/feedback',
+  baseURL:'http://localhost:8080/feedback',
   withCredentials: true,
 })
 const ANALYTICS_API = axios.create({
-  baseURL: 'https://meditracklite-production.up.railway.app/analytics',
+  baseURL: 'http://localhost:8080/analytics',
   withCredentials: true,
 });
 
@@ -650,8 +650,10 @@ const [chatDoctor, setChatDoctor] = useState(null);
       });
       setReportFile(null);
       setShowPaymentModal(false);
+      return true;
     } catch (err) {
       setBookMsg(err.response?.data || 'Something went wrong.');
+      throw new Error(err.response?.data || 'Something went wrong.');
     }
   };
   const handleBook = async (e) => {
@@ -867,14 +869,14 @@ const [chatDoctor, setChatDoctor] = useState(null);
                   required
                 ></textarea>
               </label>
-              <label>
+              {/* <label>
                 Upload Report (optional):
                 <input
                   type="file"
                   accept=".pdf,.jpg,.jpeg,.png"
                   onChange={e => setReportFile(e.target.files[0])}
                 />
-              </label>
+              </label> */}
               <button type="submit">Proceed to Payment</button>
 
             </form>

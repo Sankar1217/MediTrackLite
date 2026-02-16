@@ -5,8 +5,8 @@ import { over } from 'stompjs';
 // Set your backend WebSocket endpoint
 const SOCKET_URL =
   window.location.hostname === 'localhost'
-    ? 'https://meditracklite-production.up.railway.app/chat'
-    : 'https://meditracklite-production.up.railway.app/chat';
+    ? 'http://localhost:8080/chat'
+    : 'http://localhost:8080/chat';
 
 /**
  * @param {string} username - The logged-in user's username (should match backend Principal name)

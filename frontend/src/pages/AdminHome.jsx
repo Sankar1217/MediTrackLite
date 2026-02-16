@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./../css/AdminHome.css";
 
 const API = axios.create({
-  baseURL: "https://meditracklite-production.up.railway.app",
+  baseURL: "http://localhost:8080",
   withCredentials: true,
 });
 
@@ -311,9 +311,8 @@ const AdminHome = () => {
       if (!auto) navigate("/login");
     }
   };
-
   // --- UI ---
-  return (
+  return  (
     <div className="admin-home-root">
       {/* Sidebar */}
       <div className="admin-sidebar">
